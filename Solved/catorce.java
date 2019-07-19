@@ -1,3 +1,5 @@
+package Solved;
+
 
 /**
 The following iterative sequence is defined for the set of positive integers:
@@ -18,43 +20,33 @@ public class catorce
 {
     public static void main(String [] args){
         int cadena=0;
-        int nuevoNumero=0;
+        long nuevoNumero=0;//Si es entero, se produce un error en 113383 que da lugar a un numero negativo y una cadena infinita
         int valorMayor=1;
         int totalCadena=0;
-        for(int numero=1;numero<=200000;numero++){
-            System.gc();
-            cadena=0;
+        for(int numero=113383;numero<=1000001;numero++){
+            cadena=1;
             nuevoNumero=numero;
             //System.out.println(numero%10000==0 ? "\nN:"+numero :"");
-            while(nuevoNumero!=1  && nuevoNumero>0){
+            while(nuevoNumero!=1 ){
                 if(nuevoNumero%2==0){
                     nuevoNumero=nuevoNumero/2;
-                    cadena++;
                 }else{
                     nuevoNumero=(nuevoNumero*3)+1;
-                    cadena++;
                 }
+                cadena++;
                 
                 //System.out.print((cadena)%100==0 ? nuevoNumero+" -> ": "");
                 //System.out.print((numero)%100==0 ? numero+" \n": "");
-                
-                //System.out.println("nn:"+nuevoNumero+" c:"+cadena);
-                
+
+                //System.out.println(numero+" nn:"+nuevoNumero+" c:"+cadena);
+
             }
-            if(cadena>totalCadena){
+            if(cadena>=totalCadena){
                 totalCadena=cadena;
                 valorMayor=numero;
             }
             System.out.print(numero%1000==0 ?"\n"+numero+" vm: "+valorMayor+", lc: "+totalCadena:"");
         }
-        //0-100k 77031 350
-        //106239, 353
-        //156159 382
-        //216367 385
-        //230631 442
-        //410011 448
-        //511935 469 .... 
-        //767903 467
-        //910107 475
+        
     }
 }
