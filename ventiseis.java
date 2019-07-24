@@ -21,21 +21,31 @@ import java.math.BigInteger;
 public class ventiseis
 {
     public static void main(String [] args){
-        BigInteger numero= new BigInteger("1");
-        BigInteger division= new BigInteger("0");
-        BigInteger auxiliar= new BigInteger("0");
-        BigInteger auxiliar2= new BigInteger("0");
+        float numero= 1;
+        float division=0;
+        float auxiliar= 0;
         double mayor=0;
-        for(int i=1;i<1000;i++){
-            auxiliar2= new BigInteger(""+i);
-            auxiliar= numero.divide(auxiliar2);
-            if(auxiliar.toString().length()>division.toString().length()){
+        int contador=0;
+        int actual=0;
+        for(int i=1000;i>0;i--){
+            System.out.println();
+            auxiliar= (float)numero/i;
+            String elNumero = Float.toString(auxiliar);
+            for(int j=1; j<elNumero.length()-1;j++){
+                System.out.print(elNumero.substring(j));
+                if(elNumero.charAt(j)==elNumero.charAt(j+1)){
+                    contador++;
+                }
+            }
+            if(contador>actual){
                 division= auxiliar;              
                 mayor=i;
-                
+                actual=contador;
             }
+            contador=0;
+            //if( Float.toString(auxiliar).length()>Float.toString(division).length()){}
         }
-        System.out.println("El mayor es "+mayor +" con "+division.toString());
+        System.out.println("El mayor es "+mayor +" con "+division);
     }
 
 }
