@@ -31,10 +31,12 @@ public class ventiseis
             System.out.println();
             auxiliar= (float)numero/i;
             String elNumero = Float.toString(auxiliar);
-            for(int j=1; j<elNumero.length()-1;j++){
+            for(int j=2; j<elNumero.length()-1;j++){
                 System.out.print(elNumero.substring(j));
-                if(elNumero.charAt(j)==elNumero.charAt(j+1)){
+                if(elNumero.charAt(j)!=elNumero.charAt(j+1)){
                     contador++;
+                }else{
+                    break;
                 }
             }
             if(contador>actual){
